@@ -6,43 +6,52 @@
     <?php endif; ?>
     <div class="container d-flex justify-content-center">
         <div class="col-12 col-sm-10 col-md-8 col-lg-7 col-xl-6 col-xxl-5">
+            <div class="col-md-12">
+                <h3 id="heading">Stay connected with world's largest democracy!</h3>
+            </div>
             <div class="col-md-12" id="main_registration">
-                <div class="col-md-12">
-                    <h3 id="heading">Stay connected with world's largest democracy!</h3>
-                </div>
-
+                <hr>
                 <form role="form" method="POST" action="/Signup/store">
                     <div class="col-md-6 form-group">
+                        <label for="firstName">First Name</label>
                         <input type="text" name="first_name" id="first_name" class="form-control"
                             placeholder="First Name" required />
                     </div>
 
                     <div class="col-md-6 form-group">
+                        <label for="lastName">Last Name</label>
                         <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Surname"
                             required />
                     </div>
 
                     <div class="col-md-12 form-group">
+                        <label for="username">Username</label>
                         <input type="text" name="username" id="username" class="form-control" placeholder="Username"
                             required />
                     </div>
 
                     <div class="col-md-12 form-group">
+                        <label for="mobile">Mobile</label>
+
                         <input type="text" name="mobile" id="mobile" class="form-control" placeholder="Mobile No."
                             required />
                     </div>
 
                     <div class="col-md-12 form-group">
+
+                        <label for="email">Email</label>
                         <input type="text" name="email" id="email" class="form-control" placeholder="Email ID"
                             required />
                     </div>
 
                     <div class="col-md-12 form-group">
+                        <label for="password">Password</label>
                         <input type="password" name="password" id="password" class="form-control" placeholder="Password"
                             required />
                     </div>
 
                     <div class="col-md-12 form-group">
+                        <label for="password-confirmation">Confirm Password</label>
                         <input type="password" name="confirmpassword" id="confirmpassword" class="form-control"
                             placeholder="Confirm Password" required />
                     </div>

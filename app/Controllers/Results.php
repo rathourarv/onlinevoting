@@ -2,6 +2,7 @@
 namespace App\Controllers;
 use App\Models\Election;
 use CodeIgniter\Controller;
+use \DateTime;
 
 class Results extends Controller
 {
@@ -9,7 +10,9 @@ class Results extends Controller
   {
     $session = session();
     $election = new Election();
-    $completed_elections = $election->where('endDate < current_date()')->findAll();
+    $now = new DateTime();
+    $current_date = $now->format('Y-m-d');
+    $completed_elections = $election->where('endDate <', $current_date)->findAll();
     $data = [
       "username" => $session->get("first_name"),
       "is_logged_in" => $session->get("isLoggedIn"),

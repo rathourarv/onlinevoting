@@ -8,7 +8,6 @@ class Feedback extends Controller
     public function index()
     {
         $session = session();
-
         $data = [
             "username" => $session->get("first_name"),
             "is_logged_in" => $session->get("isLoggedIn"),
@@ -21,7 +20,7 @@ class Feedback extends Controller
         $rules = [
             'name' => 'required|min_length[2]|max_length[50]',
             'textbox' => 'required|min_length[20]|max_length[200]',
-            'fback' => 'required|min_length[5]|max_length[20]',
+            'fback' => 'required|min_length[2]|max_length[20]',
             'email' => 'required|min_length[4]|max_length[100]|valid_email|is_unique[user.email]',
         ];
 
