@@ -11,6 +11,8 @@ class Feedback extends Controller
         $data = [
             "username" => $session->get("first_name"),
             "is_logged_in" => $session->get("isLoggedIn"),
+            "message" => $session->getFlashdata('message'),
+            "validation" => $session->getFlashdata('validation')
         ];
         return view("pages/feedback", $data);
     }
@@ -39,6 +41,7 @@ class Feedback extends Controller
                 'email' => $this->request->getVar('email'),
             ];
             $feedbackModel->save($data);
+            $session->setFlashdata('message', 'Feedback submitted successfully');
             return redirect()->to('/feedback');
 
         } else {
