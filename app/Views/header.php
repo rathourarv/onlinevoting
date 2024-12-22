@@ -25,7 +25,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/" class="navbar-brand">Welcome to Online Election System</a>
+                <a href="/" class="navbar-brand">Online Election System</a>
             </div>
 
             <div class="collapse navbar-collapse" id="navbar-collapse">

@@ -11,7 +11,7 @@
     <?php endif; ?>
     <h2>Update Voting Eligibility Details</h2>
     <hr>
-    <form method="POST" action=<?php echo "profile?user_id=1" ?>>
+    <form method="POST" action=<?php echo "/eligibility" ?>>
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="firstName">First Name</label>

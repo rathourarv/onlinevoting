@@ -23,7 +23,7 @@ class CreateParty extends Migration
             ],
             'partySymbol' => [
                 'type'           => 'VARCHAR',
-                'constraint'     => 255,
+                'constraint'     => 100,
                 'null'            => true,
             ],
             'leaderName' => [

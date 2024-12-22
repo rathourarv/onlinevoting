@@ -1,5 +1,5 @@
 <head>
-    <title>Election</title>
+    <title>Online Election System</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,7 +24,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/" class="navbar-brand">Welcome to Online Election System</a>
+                <a href="/" class="navbar-brand">Online Election System</a>
             </div>
 
             <div class="collapse navbar-collapse" id="navbar-collapse">

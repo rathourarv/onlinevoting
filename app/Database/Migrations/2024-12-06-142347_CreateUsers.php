@@ -38,12 +38,12 @@ class CreateUser extends Migration
             ],
             'email' => [
                 'type' => 'VARCHAR',
-                'constraint' => 255,
+                'constraint' => 50,
                 'null' => false,
             ],
             'mobile' => [
                 'type' => 'VARCHAR',
-                'constraint' => 255,
+                'constraint' => 50,
                 'null' => false,
             ],
             'isAdmin' => [
