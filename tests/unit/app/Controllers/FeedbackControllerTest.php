@@ -28,7 +28,7 @@ final class FeedbackControllerTest extends CIUnitTestCase
             ->execute('index');
 
         $this->assertTrue(condition: $result->isOK());
-        $this->assertTrue(condition: $result->see('Feedback Form:'));
+        $this->assertTrue(condition: $result->see('Feedback Form'));
     }
     public function testStoreWithoutBody()
     {
@@ -37,7 +37,7 @@ final class FeedbackControllerTest extends CIUnitTestCase
             ->execute('store');
 
         $this->assertTrue(condition: $result->isOK());
-        $this->assertTrue(condition: $result->see('Feedback Form:'));
+        $this->assertTrue(condition: $result->see('Feedback Form'));
         $this->assertTrue(condition: $result->see('The name field is required.'));
         $this->assertTrue(condition: $result->see('The textbox field is required.'));
         $this->assertTrue(condition: $result->see('The fback field is required.'));

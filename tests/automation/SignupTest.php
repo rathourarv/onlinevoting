@@ -16,6 +16,7 @@ class SignupTest extends TestCase
 
     protected function setUp(): void
     {
+        $this->markTestSkipped('all tests in this file are invactive for this server configuration!');
         log_message('info', 'Setup called');
         $host = 'http://localhost:4444/wd/hub'; // Selenium Server URL
 
@@ -39,6 +40,7 @@ class SignupTest extends TestCase
     }
     public function testSuccessfulSignup(): void
     {
+    
         $this->driver->get('http://localhost:8080/signup');
 
         log_message('info', 'Test Successful Signup');

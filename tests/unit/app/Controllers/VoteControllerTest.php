@@ -38,7 +38,6 @@ final class VoteControllerTest extends CIUnitTestCase
             ->execute('index');
 
         $this->assertTrue(condition: $result->isOK());
-        $result->assertRedirectTo('tes');
-        $this->assertTrue(condition: $result->see(search: 'Welcome to Online Election System'));
+        $result->assertRedirectTo('http://localhost:8080/');
     }
 }

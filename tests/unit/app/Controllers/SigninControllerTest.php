@@ -35,6 +35,6 @@ final class SigninControllerTest extends CIUnitTestCase
             ->execute('logout');
 
         $this->assertTrue(condition: $result->isOK());
-        $result->assertRedirectTo('http://example.com/dashboard');
+        $result->assertRedirectTo('http://localhost:8080/dashboard');
     }
 }
