@@ -2,9 +2,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card shadow">
-                <div class="card-header bg-primary text-white">
-                    <h4 class="card-title mb-0">Feedback Form</h4>
+                <div class="card-header text-white">
+                    <h2 class="card-title">Feedback Form</h2>
                 </div>
+                <hr>
                 <div class="card-body">
                     <!-- Display Validation Errors -->
                     <?php if (isset($validation)): ?>
@@ -18,42 +19,47 @@
                         </div>
                     <?php endif; ?>
                     <form action="/feedback" method="POST" name="rform">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Your Name</label>
-                            <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email Address</label>
-                            <input type="email" name="email" id="email" class="form-control"
-                                placeholder="Enter your email">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Feedback</label>
-                            <div class="form-check">
-                                <input type="radio" name="fback" id="feedbackPoor" value="Poor"
-                                    class="form-check-input">
-                                <label for="feedbackPoor" class="form-check-label">Poor</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" name="fback" id="feedbackGood" value="Good"
-                                    class="form-check-input">
-                                <label for="feedbackGood" class="form-check-label">Good</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" name="fback" id="feedbackVeryGood" value="Very Good"
-                                    class="form-check-input">
-                                <label for="feedbackVeryGood" class="form-check-label">Very Good</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" name="fback" id="feedbackExcellent" value="Excellent"
-                                    class="form-check-input">
-                                <label for="feedbackExcellent" class="form-check-label">Excellent</label>
+                        <div class="form-group row">
+                            <label for="Name" class="col-sm-2 col-form-label">Name: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="name" name="name" value=<?php echo $name?> readonly>
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="textbox" class="form-label">Any Suggestion</label>
-                            <textarea name="textbox" id="textbox" class="form-control" rows="5"
-                                placeholder="Enter your suggestions here"></textarea>
+                        <div class="form-group row">
+                            <label for="Email" class="col-sm-2 col-form-label">Email: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="email" name="email" value=<?php echo $email?> readonly>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Feedback:</label>
+                            <div class="col-sm-10">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="fback" id="poor" value="Poor">
+                                    <label class="form-check-label" for="poor">Poor</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="fback" id="good" value="Good">
+                                    <label class="form-check-label" for="good">Good</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="fback" id="very-good"
+                                        value="Very Good">
+                                    <label class="form-check-label" for="very-good">Very Good</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="fback" id="excellent"
+                                        value="Excellent">
+                                    <label class="form-check-label" for="excellent">Excellent</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="textbox" class="col-sm-2 col-form-label">Suggestion: </label>
+                            <div class="col-sm-10">
+                                <textarea name="textbox" id="textbox" class="form-control" rows="4"
+                                    placeholder="Enter your suggestions here"></textarea>
+                            </div>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary">Submit Feedback</button>

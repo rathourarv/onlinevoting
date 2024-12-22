@@ -1,24 +1,39 @@
 version: '3.8'
 
 services:
-  migrate:
+  onlinevoting_migrate:
     image: shinsenter/codeigniter4:dev-php8.2
     container_name: codeigniter_migrate
     volumes:
       - .:/var/www/html
     command: php spark migrate
     environment:
-      - CI_ENV=development
-  app:
+      - CI_ENVIRONMENT=development
+
+  onlinevoting_app:
     image: shinsenter/codeigniter4:dev-php8.2
     container_name: codeigniter_app
     ports:
-      - "80:80"
-      - "443:443"
+      - "8080:80"
+      - "4430:443"
     volumes:
       - .:/var/www/html
     environment:
-      - CI_ENV=development
+      - app.baseURL = 'http://localhost:8080/'
+      - CI_ENVIRONMENT=development
+
+  onlinevoting_db:
+    image: mysql:8.0
+    container_name: codeigniter_db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: onlinevoting
+      MYSQL_USER: codeigniter
+      MYSQL_PASSWORD: password
+    volumes:
+      - db_data:/var/lib/mysql
 
 volumes:
   db_data:

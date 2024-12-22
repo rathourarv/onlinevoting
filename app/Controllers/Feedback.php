@@ -10,6 +10,8 @@ class Feedback extends Controller
         $session = session();
         $data = [
             "username" => $session->get("first_name"),
+            "email" => $session->get("email"),
+            "name" => $session->get("first_name") . " " . $session->get("last_name"),
             "is_logged_in" => $session->get("isLoggedIn"),
             "message" => $session->getFlashdata('message'),
             "validation" => $session->getFlashdata('validation')
@@ -23,11 +25,13 @@ class Feedback extends Controller
             'name' => 'required|min_length[2]|max_length[50]',
             'textbox' => 'required|min_length[20]|max_length[200]',
             'fback' => 'required|min_length[2]|max_length[20]',
-            'email' => 'required|min_length[4]|max_length[100]|valid_email|is_unique[user.email]',
+            'email' => 'required|min_length[4]|max_length[100]|valid_email',
         ];
 
         $session = session();
         $data = [
+            "email" => $session->get("email"),
+            "name" => $session->get("first_name") . " " . $session->get("last_name"),
             "username" => $session->get("first_name"),
             "is_logged_in" => $session->get("isLoggedIn"),
         ];

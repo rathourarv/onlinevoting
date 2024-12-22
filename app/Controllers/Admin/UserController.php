@@ -1,6 +1,6 @@
 <?php
 namespace App\Controllers\Admin;
-use App\Models\user;
+use App\Models\User;
 use CodeIgniter\Controller;
 
 class UserController extends Controller
