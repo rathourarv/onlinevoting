@@ -6,7 +6,7 @@
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <li><a class="dropdown-item" href="/profile">Profile</a></li>
         <li><a class="dropdown-item" href="/eligibility">Eligibility</a></li>
-        <li><a class="dropdown-item" href="/feedback">Feedback</a></li>
+        <li><a class="dropdown-item" href="/feedback">Contact Us</a></li>
         <li><a class="dropdown-item" href="/about-us">About Us</a></li>
         <li><a class="dropdown-item" href="/logout">Logout</a></li>
     </ul>

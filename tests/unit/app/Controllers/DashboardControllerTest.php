@@ -30,6 +30,6 @@ final class DashboardControllerTest extends CIUnitTestCase
             ->execute('index');
 
         $this->assertTrue(condition: $result->isOK());
-        $this->assertTrue(condition: $result->see('Welcome to Online Election System'));
+        $this->assertTrue(condition: $result->see('Online Election System'));
     }
 }

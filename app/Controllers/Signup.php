@@ -39,6 +39,8 @@ class Signup extends Controller
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
             ];
             $userModel->save($data);
+            $session = session();
+            $session->setFlashdata('success', 'Registration completed successfully');
             return redirect()->to('/signin');
         } else {
             $data['validation'] = $this->validator;

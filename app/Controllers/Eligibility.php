@@ -16,7 +16,7 @@ class Eligibility extends Controller
         $data = [
             "username" => $session->get("first_name"),
             "is_logged_in" => $session->get("isLoggedIn"),
-            "message" => $session->getFlashdata('message'),
+            "success" => $session->getFlashdata('success'),
             "validation" => $session->getFlashdata('validation')
         ];
 
@@ -66,7 +66,7 @@ class Eligibility extends Controller
                 $input['userID'] = $session->get('id');
                 $voterModel->save($input);
             }
-            $session->setFlashdata('message', "Profile updated successfully");
+            $session->setFlashdata('success', "Profile updated successfully");
             return redirect()->to('/eligibility');
         } else {
             $session->setFlashdata('validation', $this->validator);

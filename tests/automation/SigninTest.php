@@ -9,7 +9,7 @@ use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\WebDriverExpectedCondition;
 use PHPUnit\Framework\TestCase;
 
-class SignupTest extends TestCase
+class SigninTest extends TestCase
 {
     /** @var RemoteWebDriver */
     protected $driver;
@@ -38,28 +38,20 @@ class SignupTest extends TestCase
             $this->driver->quit();
         }
     }
-    public function testSuccessfulSignup(): void
+    public function testSuccessfulSignin(): void
     {
 
-        $this->driver->get('http://localhost:8080/signup');
+        $this->driver->get('http://localhost:8080/signin');
 
-        $firstNameInput = $this->driver->findElement(WebDriverBy::id('first_name'));
-        $lastNameInput = $this->driver->findElement(WebDriverBy::name('last_name'));
-        $usernameInput = $this->driver->findElement(WebDriverBy::name('username'));
-        $mobileInput = $this->driver->findElement(WebDriverBy::name('mobile'));
-        $passwordInput = $this->driver->findElement(WebDriverBy::name('password'));
-        $confirmPasswordInput = $this->driver->findElement(WebDriverBy::name('confirmpassword'));
+        log_message('info', 'Test Successful Signin');
         $emailInput = $this->driver->findElement(WebDriverBy::id('email'));
+        $passwordInput = $this->driver->findElement(WebDriverBy::name('password'));
         $submitButton = $this->driver->findElement(WebDriverBy::id('submit-button'));
 
         log_message('info', 'found ids');
-        $firstNameInput->sendKeys('Test');
-        $lastNameInput->sendKeys('User');
-        $usernameInput->sendKeys('testuser' . time());
-        $mobileInput->sendKeys(8976768765);
-        $emailInput->sendKeys('testuser' . time() . '@example.com');
+        $emailInput->sendKeys('testuser@example.com');
         $passwordInput->sendKeys('P@$$wOrd');
-        $confirmPasswordInput->sendKeys('P@$$wOrd');
+
         $submitButton->click();
 
         // Wait for success message or redirect (adjust as needed)
@@ -68,41 +60,54 @@ class SignupTest extends TestCase
         );
 
         $successMessage = $this->driver->findElement(WebDriverBy::id('success-message'))->getText();
-        $this->assertStringContainsString('Registration completed successfully ', $successMessage);
+        $this->assertStringContainsString('Welcome back, Test', $successMessage);
     }
  
-    public function testEmailAlreadyInUse(): void
+    public function testEmailDoesNotExist(): void
     {
-        $this->driver->get('http://localhost:8080/signup');
+        $this->driver->get('http://localhost:8080/signin');
 
-        log_message('info', 'Test Successful Signup');
-        $firstNameInput = $this->driver->findElement(WebDriverBy::id('first_name'));
-        $lastNameInput = $this->driver->findElement(WebDriverBy::name('last_name'));
-        $usernameInput = $this->driver->findElement(WebDriverBy::name('username'));
-        $mobileInput = $this->driver->findElement(WebDriverBy::name('mobile'));
-        $passwordInput = $this->driver->findElement(WebDriverBy::name('password'));
-        $confirmPasswordInput = $this->driver->findElement(WebDriverBy::name('confirmpassword'));
+        log_message('info', 'Test Successful Signin');
         $emailInput = $this->driver->findElement(WebDriverBy::id('email'));
+        $passwordInput = $this->driver->findElement(WebDriverBy::name('password'));
         $submitButton = $this->driver->findElement(WebDriverBy::id('submit-button'));
 
         log_message('info', 'found ids');
-        $firstNameInput->sendKeys('Test');
-        $lastNameInput->sendKeys('User');
-        $usernameInput->sendKeys('testuser' . time());
-        $mobileInput->sendKeys(8976768765);
-        $emailInput->sendKeys('testuser@example.com');
+        $emailInput->sendKeys('testuser1@example.com');
         $passwordInput->sendKeys('P@$$wOrd');
-        $confirmPasswordInput->sendKeys('P@$$wOrd');
 
         $submitButton->click();
-
         
         // Check for error messages near each field or a general error
         $this->driver->wait(10, 500)->until(
-            WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::id('validation-errors')) //Example error
+            WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::id('warning-message')) //Example error
         );
-        $firstNameError = $this->driver->findElement(WebDriverBy::id('validation-errors'))->getText();
-        $this->assertStringContainsString('The email field must contain a unique value.', $firstNameError);
+        $firstNameError = $this->driver->findElement(WebDriverBy::id('warning-message'))->getText();
+        $this->assertStringContainsString('Email does not exist.', $firstNameError);
+
+    }
+
+    public function testLogout(): void
+    {
+        $this->driver->get('http://localhost:8080/signin');
+
+        log_message('info', 'Test Successful Signin');
+        $emailInput = $this->driver->findElement(WebDriverBy::id('email'));
+        $passwordInput = $this->driver->findElement(WebDriverBy::name('password'));
+        $submitButton = $this->driver->findElement(WebDriverBy::id('submit-button'));
+
+        log_message('info', 'found ids');
+        $emailInput->sendKeys('testuser@example.com');
+        $passwordInput->sendKeys('P@$$wOrd');
+
+        $submitButton->click();
+        
+        $this->driver->get('http://localhost:8080/logout');
+        // Check for error messages near each field or a general error
+        $this->driver->wait(10, 500)->until(
+            WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::id('signin-form')) //Example error
+        );
+        $this->assertEquals($this->driver->getCurrentURL(), "http://localhost:8080/signin");
 
     }
 }

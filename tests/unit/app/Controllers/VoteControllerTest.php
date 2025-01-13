@@ -4,7 +4,6 @@ namespace App\Controllers;
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\ControllerTestTrait;
 use CodeIgniter\Test\DatabaseTestTrait;
-use App\Controllers\Dashboard;
 use Tests\Support\Database\Seeds\CandidateSeeder;
 use Tests\Support\Database\Seeds\ConstituencySeeder;
 use Tests\Support\Database\Seeds\ElectionSeeder;

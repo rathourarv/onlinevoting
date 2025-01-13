@@ -1,12 +1,12 @@
 <div class="container">
     <?php if (isset($validation)): ?>
-        <div class="alert alert-warning">
+        <div id="warning-message" class="alert alert-warning">
             <?= $validation->listErrors() ?>
         </div>
     <?php endif; ?>
-    <?php if (isset($message)): ?>
-        <div class="alert alert-success">
-            <?= $message ?>
+    <?php if (isset($success)): ?>
+        <div id="success-message" class="alert alert-success">
+            <?= $success ?>
         </div>
     <?php endif; ?>
     <h2>Update Voting Eligibility Details</h2>

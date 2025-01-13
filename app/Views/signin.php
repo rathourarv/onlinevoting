@@ -1,18 +1,23 @@
 <div class="page-content d-flex align-items-center">
     <div class="container d-flex justify-content-center">
         <div class="col-12 col-sm-10 col-md-8 col-lg-7 col-xl-6 col-xxl-5">
-            
+
             <div class="auth-card">
                 <div class="logo-area">
                     <img id="header_logo" class="logo-size" src="../assets/login.png" />
                 </div>
-                <?php if (session()->getFlashdata('msg')): ?>
-                    <div class="alert alert-warning">
-                        <?= session()->getFlashdata('msg') ?>
+                <?php if (session()->getFlashdata('warning')): ?>
+                    <div id="warning-message" class="alert alert-warning">
+                        <?= session()->getFlashdata('warning') ?>
+                    </div>
+                <?php endif; ?>
+                <?php if (session()->getFlashdata('success')): ?>
+                    <div id="success-message" class="alert alert-success">
+                        <?= session()->getFlashdata('success') ?>
                     </div>
                 <?php endif; ?>
                 <!-- Login-Form-->
-                <form method="POST" action="/Signin/loginAuth">
+                <form method="POST" id="signin-form" action="/Signin/loginAuth">
                     <div class="form-group">
                         <label for="Email">Email ID</label>
                         <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp"
@@ -29,7 +34,7 @@
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">remember me</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button id="submit-button" type="submit" class="btn btn-primary">Submit</button>
                 </form>
                 <div>
 

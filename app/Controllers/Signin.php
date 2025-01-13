@@ -43,11 +43,11 @@ class Signin extends Controller
                 }
                 return redirect()->to('/dashboard');
             } else {
-                $session->setFlashdata('msg', 'Password is incorrect.');
+                $session->setFlashdata('warning', 'Password is incorrect.');
                 return redirect()->to('/signin');
             }
         } else {
-            $session->setFlashdata('msg', 'Email does not exist.');
+            $session->setFlashdata('warning', 'Email does not exist.');
             return redirect()->to('/signin');
         }
     }

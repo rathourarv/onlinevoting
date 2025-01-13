@@ -2,25 +2,25 @@
     <h2>Update Profile Details</h2>
     <hr>
     <?php if (isset($validation)): ?>
-        <div class="alert alert-warning">
+        <div id="warning-message" class="alert alert-warning">
             <?= $validation->listErrors() ?>
         </div>
     <?php endif; ?>
-    <?php if (isset($message)): ?>
-        <div class="alert alert-success">
-            <?= $message ?>
+    <?php if (isset($success)): ?>
+        <div id="success-message" class="alert alert-success">
+            <?= $success ?>
         </div>
     <?php endif; ?>
     <form method="POST" action=<?php echo "profile" ?>>
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="firstName">First Name</label>
-                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name"
+                <input type="text" class="form-control" id="first_name" name="firstName" placeholder="First Name"
                     value=<?php echo $profile['firstName'] ?? "" ?>>
             </div>
             <div class="form-group col-md-4">
                 <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name"
+                <input type="text" class="form-control" id="last_name" name="lastName" placeholder="Last Name"
                     value=<?php echo $profile['lastName'] ?? "" ?>>
             </div>
             <div class="form-group col-md-4">

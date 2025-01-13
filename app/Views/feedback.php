@@ -13,9 +13,9 @@
                             <?= $validation->listErrors() ?>
                         </div>
                     <?php endif; ?>
-                    <?php if (isset($message)): ?>
-                        <div class="alert alert-success">
-                            <?= $message ?>
+                    <?php if (isset($success)): ?>
+                        <div id="success-message" class="alert alert-success">
+                            <?= $success ?>
                         </div>
                     <?php endif; ?>
                     <form action="/feedback" method="POST" name="rform">
@@ -62,7 +62,7 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                            <button type="submit" id="submit-button" class="btn btn-primary">Submit Feedback</button>
                         </div>
                     </form>
                 </div>

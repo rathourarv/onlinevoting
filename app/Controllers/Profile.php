@@ -16,7 +16,7 @@ class Profile extends Controller
         $data = [
             "username" => $session->get("first_name"),
             "is_logged_in" => $session->get("isLoggedIn"),
-            "message" => $session->getFlashdata('message'),
+            "success" => $session->getFlashdata('success'),
             "validation" => $session->getFlashdata('validation')
         ];
 
@@ -57,7 +57,7 @@ class Profile extends Controller
                 'isLoggedIn' => TRUE
             ];
             $session->set($ses_data);
-            $session->setFlashdata('message', "Profile updated successfully");
+            $session->setFlashdata('success', "Profile updated successfully");
             return redirect()->to('/profile');
         } else {
             $session->setFlashdata('validation', $this->validator);

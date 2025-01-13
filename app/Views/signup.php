@@ -1,6 +1,6 @@
 <div class="page-content d-flex align-items-center">
     <?php if (isset($validation)): ?>
-        <div class="alert alert-warning">
+        <div id="validation-errors" class="alert alert-warning">
             <?= $validation->listErrors() ?>
         </div>
     <?php endif; ?>
@@ -59,10 +59,10 @@
 
                     <div class="col-md-12 form-group">
                         <div class="col-md-6 form-group" align="right">
-                            <button type="submit" class="btn btn-default">Submit</button>
+                            <button id="submit-button" type="submit" class="btn btn-default">Submit</button>
                         </div>
                         <div class="col-md-6 form-group" align="left">
-                            <button type="reset" class="btn btn-default">Reset</button>
+                            <button id="reset-button" type="reset" class="btn btn-default">Reset</button>
                         </div>
                     </div>
                 </form>

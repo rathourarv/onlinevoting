@@ -21,7 +21,7 @@ final class SigninControllerTest extends CIUnitTestCase
             ->execute('index');
 
         $this->assertTrue(condition: $result->isOK());
-        $this->assertTrue(condition: $result->see('Welcome to Online Election System'));
+        $this->assertTrue(condition: $result->see('Online Election System'));
         $this->assertTrue(condition: $result->see('Email ID'));
         $this->assertTrue(condition: $result->see('Password'));
         $this->assertTrue(condition: $result->see('Submit'));

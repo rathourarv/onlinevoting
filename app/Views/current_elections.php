@@ -1,11 +1,11 @@
 <div class="container">
     <?php if (isset($warning)): ?>
-        <div class="alert alert-warning">
+        <div id="warning-message" class="alert alert-warning">
             <?= $warning ?>
         </div>
     <?php endif; ?>
     <?php if (isset($message)): ?>
-        <div class="alert alert-success">
+        <div id="success-message" class="alert alert-success">
             <?= $message ?>
         </div>
     <?php endif; ?>
